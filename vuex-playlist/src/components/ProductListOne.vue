@@ -14,7 +14,7 @@
 </template>
 
 <script>
-
+import {mapActions, mapGetters} from 'vuex'
  
 export default {
   
@@ -23,15 +23,21 @@ export default {
             return this.$store.state.products
         },
         // modifico meu array com o funcao map
-        saleProducts(){
+       /*  saleProducts(){
           return this.$store.getters.saleProducts
-      }
+      } */
+      ...mapGetters([
+          'saleProducts'
+      ])
     },
 
     methods:{
-        reducePrice:function(){
+        /* reducePrice:function(){
            this.$store.dispatch('reducePrice')
-        }
+        } */
+        ...mapActions([
+            'reducePrice'
+        ])
     }
         
     
